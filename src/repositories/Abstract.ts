@@ -1,15 +1,13 @@
 import * as deepMerge from 'deepmerge';
-import { Injectable } from '@nestjs/common';
 
 import type {
-    Repository,
-    SaveOptions,
     DeepPartial,
+    FindManyOptions,
     FindOneOptions,
-    FindManyOptions
+    Repository,
+    SaveOptions
 } from 'typeorm';
 
-@Injectable()
 export abstract class AbstractRepository<T extends { id: string }> {
     protected abstract readonly repository: Repository<T>;
 

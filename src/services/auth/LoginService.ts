@@ -1,5 +1,5 @@
-import * as bcrypt from 'bcryptjs';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
+import * as bcrypt from 'bcryptjs';
 
 import { LoginDto } from '@/dto/Auth/LoginDto';
 import { UserRepository } from '@/repositories/User';
@@ -9,7 +9,7 @@ import { Request } from 'express';
 
 @Injectable()
 export class LoginService {
-    constructor(private userRepository: UserRepository) {}
+    constructor(private readonly userRepository: UserRepository) {}
 
     async handle(data: LoginDto, req: Request): Promise<User> {
         const { email, password } = data;

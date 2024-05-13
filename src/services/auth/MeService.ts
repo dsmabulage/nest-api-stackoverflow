@@ -1,12 +1,12 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserRepository } from '@/repositories/User';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 
 import { User } from '@/entities/User';
 import { Request } from 'express';
 
 @Injectable()
 export class MeService {
-    constructor(private userRepository: UserRepository) {}
+    constructor(private readonly userRepository: UserRepository) {}
 
     async handle(req: Request): Promise<User> {
         const id = req.user.id;
